@@ -1,0 +1,7 @@
+{
+  "name": "appli_jeuxvideo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
