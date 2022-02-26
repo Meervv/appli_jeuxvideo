@@ -10,40 +10,13 @@
         <ion-item>
             <ion-icon name="game-controller-outline" slot="start"></ion-icon>
             <ion-label>{{jeu.libelleJeux}}</ion-label>
-            <ion-button fill="outline" slot="end">View</ion-button>
+            <!-- <ion-button [routerLink]="['detail-jeu/', jeuData.idJeux]">Détail</ion-button> -->
+            <ion-button>Détail</ion-button>
         </ion-item>
-        <p>Date de sortie : {{jeu.anneeSortieJeu}}</p>
+        <p>Date de sortie : {{jeu.anneeSortieJeux}}</p>
         <ion-card-content>
-            This is content, without any paragraph or header tags, within an ion-card-content element.
+            {{jeu.description}}
         </ion-card-content>
     </ion-card>
-    <!-- 
-    <table>
-        <tr>
-            <th>Nom du jeu</th>
-            <th>Année de sortie</th>
-            <th>Description</th>
-        </tr>
 
-        <tr *ngFor="let jeu of jeuData">
-            <td>{{ jeu.libelleJeux }}</td>
-            <td>{{ jeu.anneeSortieJeux }}</td>
-            <td>{{ jeu.description }}</td>
-        </tr>
-    </table> -->
-    <br><br><br><br>
-
-    <ion-item>
-        <ion-input type="text" [(ngModel)]="jeuData.libelle" placeholder="Nom du jeu"></ion-input>
-    </ion-item>
-
-    <ion-item>
-        <ion-input type="text" [(ngModel)]="jeuData.annee" placeholder="Année de sortie"></ion-input>
-    </ion-item>
-
-    <ion-item>
-        <ion-input type="text" [(ngModel)]="jeuData.description" placeholder="Description"></ion-input>
-    </ion-item>
-
-    <ion-button (click)="submit()">Créer</ion-button>
 </ion-content>

@@ -2,37 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
+
 export class Tab1Page implements OnInit {
 
-  jeuData: any = {};
+  jeuData: any = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   ngOnInit() {
-    this.loadJeux();
-  }
-
-  loadJeux() {
-    return this.getAll().subscribe((res: any) => {
-      this.jeuData = res;
-    });
+    this.getAll().subscribe(res=>this.jeuData=res);
   }
 
   getAll() : Observable<any> {
     return this.http.get<any>('http://localhost:3000/list/jeux').pipe(retry(1), catchError(this.handleError));
   }
 
-  submit() {
-    this.http.post('http://localhost:3000/new/jeux', this.jeuData).subscribe((res: any) => {
-      console.log(res);
-    })
+  navigate(){
+    this.router.navigate(['/detail-jeu'])
   }
 
   handleError(error: any) {
