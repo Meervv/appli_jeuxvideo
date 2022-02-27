@@ -1,22 +1,25 @@
 <ion-header>
-
 </ion-header>
 
-<ion-content [fullscreen]="true">
-    <h3 style="text-align:center">Liste des jeux</h3>
+<ion-content>
+    <h3 style="text-align:center;">Liste des jeux</h3>
     <br>
-
-    <ion-card *ngFor="let jeu of jeuData">
-        <ion-item>
+    <ion-card *ngFor="let jeu of jeuData" style="color:rgb(255, 255, 255); background-color: #3b4ceb;">
+        <ion-item style="color: rgb(0, 0, 0);">
             <ion-icon name="game-controller-outline" slot="start"></ion-icon>
-            <ion-label>{{jeu.libelleJeux}}</ion-label>
-            <!-- <ion-button [routerLink]="['detail-jeu/', jeuData.idJeux]">Détail</ion-button> -->
-            <ion-button>Détail</ion-button>
+            <ion-label>{{jeu.libelle}}</ion-label>
+            <ion-button [routerLink]="['/jeu-detail/', jeu.id]" color="medium">Détail</ion-button>
+            <ion-button [routerLink]="['/jeu-edit/', jeu.id]" color="dark">Modifier</ion-button>
         </ion-item>
-        <p>Date de sortie : {{jeu.anneeSortieJeux}}</p>
+        <a class="brand-logo" routerLink="/jeu-delete/">
+            <img src="assets/croix.png" class="center">
+        </a>
         <ion-card-content>
-            {{jeu.description}}
+            <p>Date de sortie : {{jeu.annee}}</p>
+        </ion-card-content>
+        <ion-card-content>
+            <p>Description : {{jeu.description}}</p>
         </ion-card-content>
     </ion-card>
-
+    <!-- </div> -->
 </ion-content>

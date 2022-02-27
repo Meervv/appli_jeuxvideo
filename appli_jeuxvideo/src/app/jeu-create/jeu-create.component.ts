@@ -1,17 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import {  Observable } from 'rxjs';
-import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
+import {  Observable, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-jeu-create',
+  templateUrl: './jeu-create.component.html',
+  styleUrls: ['./jeu-create.component.scss'],
 })
 
-export class Tab2Page implements OnInit {
-  @Input() jeuDetails = {
+export class JeuCreateComponent implements OnInit {
+  @Input() jeuDetails = { 
     libelle: '', 
     annee: '',
     description: '',
@@ -20,8 +19,6 @@ export class Tab2Page implements OnInit {
     plateforme: '',
     type: ''
   };
-
-  form: FormGroup;
 
   constructor(public router: Router, private http: HttpClient) {}
 

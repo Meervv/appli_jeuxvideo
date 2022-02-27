@@ -1,0 +1,31 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+
+        <h3 class="mb-3 text-center">Modifier le jeu</h3>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="jeuData.libelle" class="form-control" placeholder="libelle">
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="jeuData.annee" class="form-control" placeholder="annee">
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="jeuData.description" class="form-control" placeholder="description">
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="jeuData.crossPlateforme" class="form-control" placeholder="crossPlateforme">
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="jeuData.genre" class="form-control" placeholder="genre">
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="jeuData.plateforme" class="form-control" placeholder="plateforme">
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="jeuData.type" class="form-control" placeholder="type">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" (click)="modifierJeu()">Modifier</button>
+        </div>
+
+    </div>
+</div>

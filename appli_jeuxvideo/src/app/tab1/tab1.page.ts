@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab1',
@@ -14,19 +15,15 @@ export class Tab1Page implements OnInit {
 
   jeuData: any = [];
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.getAll().subscribe(res=>this.jeuData=res);
+    this.getAllJeux().subscribe(res=>this.jeuData=res);
   }
 
-  getAll() : Observable<any> {
-    return this.http.get<any>('http://localhost:3000/list/jeux').pipe(retry(1), catchError(this.handleError));
-  }
-
-  navigate(){
-    this.router.navigate(['/detail-jeu'])
+  getAllJeux() : Observable<any> {
+    return this.http.get<any>('http://localhost:3000/api/jeux').pipe(retry(1), catchError(this.handleError));
   }
 
   handleError(error: any) {
