@@ -1,49 +1,28 @@
 <ion-header>
-
 </ion-header>
 
-<ion-content [fullscreen]="true">
-    <h3 style="text-align:center">Liste des jeux</h3>
+<ion-content>
+    <h3 style="text-align:center;">Liste des jeux</h3>
     <br>
-
-    <ion-card *ngFor="let jeu of jeuData">
-        <ion-item>
+    <ion-card *ngFor="let jeu of jeuData" style="color:rgb(255, 255, 255); background-color: #3b4ceb;">
+        <ion-item style="color: rgb(0, 0, 0);">
             <ion-icon name="game-controller-outline" slot="start"></ion-icon>
-            <ion-label>{{jeu.libelleJeux}}</ion-label>
-            <ion-button fill="outline" slot="end">View</ion-button>
+            <ion-label>{{jeu.libelle}}</ion-label>
+            <ion-button [routerLink]="['/jeu-detail/', jeu.id]" color="medium">Détail</ion-button>
+            <ion-button [routerLink]="['/jeu-edit/', jeu.id]" color="dark">Modifier</ion-button>
         </ion-item>
-        <p>Date de sortie : {{jeu.anneeSortieJeu}}</p>
+        <div (click)="supprimerJeu(jeu)">
+            <ion-icon name="close-circle-outline" class="center" size="large"></ion-icon>
+        </div>
+        <!-- <a class="brand-logo">
+            <img src="assets/croix.png" class="center">
+        </a> -->
         <ion-card-content>
-            This is content, without any paragraph or header tags, within an ion-card-content element.
+            <p>Date de sortie : {{jeu.annee}}</p>
+        </ion-card-content>
+        <ion-card-content>
+            <p>Description : {{jeu.description}}</p>
         </ion-card-content>
     </ion-card>
-    <!-- 
-    <table>
-        <tr>
-            <th>Nom du jeu</th>
-            <th>Année de sortie</th>
-            <th>Description</th>
-        </tr>
-
-        <tr *ngFor="let jeu of jeuData">
-            <td>{{ jeu.libelleJeux }}</td>
-            <td>{{ jeu.anneeSortieJeux }}</td>
-            <td>{{ jeu.description }}</td>
-        </tr>
-    </table> -->
-    <br><br><br><br>
-
-    <ion-item>
-        <ion-input type="text" [(ngModel)]="jeuData.libelle" placeholder="Nom du jeu"></ion-input>
-    </ion-item>
-
-    <ion-item>
-        <ion-input type="text" [(ngModel)]="jeuData.annee" placeholder="Année de sortie"></ion-input>
-    </ion-item>
-
-    <ion-item>
-        <ion-input type="text" [(ngModel)]="jeuData.description" placeholder="Description"></ion-input>
-    </ion-item>
-
-    <ion-button (click)="submit()">Créer</ion-button>
+    <!-- </div> -->
 </ion-content>

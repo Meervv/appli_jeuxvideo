@@ -1,0 +1,38 @@
+<div class="form">
+    <div class="input-container ic2">
+        <input [(ngModel)]="jeuData.libelle" id="libelle" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="libelle" class="placeholder">Nom du jeu</label>
+    </div>
+    <div class="input-container ic2">
+        <input [(ngModel)]="jeuData.annee" id="annee" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="annee" class="placeholder">Année de sortie</label>
+    </div>
+    <div class="input-container ic2">
+        <input [(ngModel)]="jeuData.description" id="description" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="description" class="placeholder">Description</label>
+    </div>
+    <div class="input-container ic2">
+        <input [(ngModel)]="jeuData.crossPlateforme" id="crossPlateforme" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="crossPlateforme" class="placeholder">Cross-Plateforme (0 ou 1)</label>
+    </div>
+    <div class="input-container ic2">
+        <input [(ngModel)]="jeuData.genre" id="genre" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="genre" class="placeholder">Genre</label>
+    </div>
+    <div class="input-container ic2">
+        <input [(ngModel)]="jeuData.plateforme" id="plateforme" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="plateforme" class="placeholder">Plateforme</label>
+    </div>
+    <div class="input-container ic2">
+        <input [(ngModel)]="jeuData.type" id="type" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="type" class="placeholder">Type</label>
+    </div>
+    <button type="text" class="submit" (click)="modifierJeu()">Modifier le jeu</button>
+</div>
