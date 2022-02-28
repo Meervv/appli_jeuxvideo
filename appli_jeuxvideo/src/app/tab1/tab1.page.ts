@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab1',
@@ -14,8 +13,9 @@ import { map } from 'rxjs/operators';
 export class Tab1Page implements OnInit {
 
   jeuData: any = [];
+  id = this.actRoute.snapshot.params['id'];
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
+  constructor(private http: HttpClient, private router: Router, private actRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -25,6 +25,26 @@ export class Tab1Page implements OnInit {
   getAllJeux() : Observable<any> {
     return this.http.get<any>('http://localhost:3000/api/jeux').pipe(retry(1), catchError(this.handleError));
   }
+
+  getJeu(id: any): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/api/jeux/' + id)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  supprimerJeu(jeu) {
+    if(window.confirm('Voulez-vous supprimer le jeu ?')){
+      this.deleteJeu(jeu.id).subscribe(data => {
+        this.router.navigate(['/tabs/tab1'])
+      })
+    }
+  }
+  
+  deleteJeu(id: any): Observable<any> {
+    return this.http.delete('http://localhost:3000/api/jeux/' + id, this.jeuData)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+ 
 
   handleError(error: any) {
     let errorMessage = '';

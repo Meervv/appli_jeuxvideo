@@ -11,9 +11,12 @@
             <ion-button [routerLink]="['/jeu-detail/', jeu.id]" color="medium">Détail</ion-button>
             <ion-button [routerLink]="['/jeu-edit/', jeu.id]" color="dark">Modifier</ion-button>
         </ion-item>
-        <a class="brand-logo" routerLink="/jeu-delete/">
+        <div (click)="supprimerJeu(jeu)">
+            <ion-icon name="close-circle-outline" class="center" size="large"></ion-icon>
+        </div>
+        <!-- <a class="brand-logo">
             <img src="assets/croix.png" class="center">
-        </a>
+        </a> -->
         <ion-card-content>
             <p>Date de sortie : {{jeu.annee}}</p>
         </ion-card-content>

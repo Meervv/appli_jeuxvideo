@@ -11,10 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { JeuEditComponent } from './jeu-edit/jeu-edit.component';
 import { JeuDetailComponent } from './jeu-detail/jeu-detail.component';
+import { JeuDeleteComponent } from './jeu-delete/jeu-delete.component';
 
 
 @NgModule({
-  declarations: [AppComponent, JeuEditComponent, JeuDetailComponent],
+  declarations: [AppComponent, JeuEditComponent, JeuDetailComponent, JeuDeleteComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

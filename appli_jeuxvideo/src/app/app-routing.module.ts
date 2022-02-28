@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { JeuDetailComponent } from './jeu-detail/jeu-detail.component';
 import { JeuEditComponent } from './jeu-edit/jeu-edit.component';
+import { JeuDeleteComponent } from './jeu-delete/jeu-delete.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   { path: 'jeu-detail/:id', component: JeuDetailComponent },
   { path: 'jeu-edit/:id', component: JeuEditComponent },
+  { path: 'jeu-delete/:id', component: JeuDeleteComponent },
 
 ];
 @NgModule({
